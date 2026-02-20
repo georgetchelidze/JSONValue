@@ -96,3 +96,11 @@ func recursiveSearchByKeyAndPredicate() {
     #expect(allIntPaths.contains([.key("items"), .index(0), .key("id")]))
     #expect(allIntPaths.contains([.key("items"), .index(0), .key("meta"), .key("id")]))
 }
+
+@Test
+func numericConstructors() {
+    #expect(JSONValue.int(5) == .number(.int(5)))
+    #expect(JSONValue.int(Int8(6)) == .number(.int(6)))
+    #expect(JSONValue.double(2.5) == .number(.double(2.5)))
+    #expect(JSONValue.double(Float(3.25)) == .number(.double(3.25)))
+}
